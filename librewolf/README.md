@@ -5,6 +5,10 @@ This module contains a `userChrome.css` stylesheet that makes the tab bar transp
 > [!NOTE]
 > `userChrome.css` styling is not officially supported by Mozilla, so support for these files may change and could break after future LibreWolf updates.
 
+## Preview
+
+![Preview](librewolf-preview.png)
+
 ## Installation
 
 1. Go to `about:addons` in Librewolf and select any theme other than "light" or "dark" (these override userChrome.css styles).
