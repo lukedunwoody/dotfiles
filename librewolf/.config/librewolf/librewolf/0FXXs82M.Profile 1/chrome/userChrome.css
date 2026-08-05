@@ -1,0 +1,163 @@
+:root {
+    --bg: #00000000;
+
+    /* Browser chrome colours */
+    --uc-solid-bg: #111117;
+    --uc-solid-border: #2E2E37;
+    --uc-solid-fg: #FFFFFF;
+
+    --uc-element-hover: #FFFFFF22;
+    --uc-element-active: #FFFFFF44;
+    --uc-element-passive: #FFFFFF80;
+    --uc-element-maintext: #FFFFFFCC;
+
+    --uc-special: rgb(150, 255, 255);
+
+    /* Tab hover panel style */
+    --panel-background-color: var(--uc-solid-bg) !important;
+    --panel-text-color: var(--uc-translucent-text) !important;
+    --panel-border-color: var(--uc-solid-border) !important;
+
+    /* General toolbar appearance */
+    --toolbar-background-color: var(--uc-solid-bg) !important; /* Ctrl + F bg, etc */
+    --toolbar-text-color: var(--uc-element-passive) !important; /* Book marks text */
+
+    /* Search bar unfocused appearance */
+    --toolbar-field-background-color: rgba(0, 0, 0, 0.3) !important;
+    --toolbar-field-text-color: var(--uc-element-maintext) !important;
+    --toolbar-field-border-color: transparent !important;
+
+    /* Seach bar expanded appearance */
+    --toolbar-field-background-color-focus: var(--uc-solid-bg) !important;
+    --toolbar-field-text-color-focus: var(--uc-solid-fg) !important;
+    --toolbar-field-border-color-focus: var(--uc-solid-border) !important;
+
+    /* Icon appearance */
+    --toolbarbutton-icon-fill: var(--uc-element-passive) !important;
+    --toolbarbutton-icon-fill-attention: var(--uc-special) !important; /* Badges */
+
+    /* Line between tabs and searchbar */
+    --tabs-navbar-separator-color: transparent !important;
+    --tabs-navbar-separator-style: none !important;
+
+    /* Button appearance */
+    --toolbarbutton-background-color-hover: var(--uc-element-hover) !important;
+    --toolbarbutton-background-color-active: var(--uc-element-active) !important;
+
+    /* Top result appearance */
+    --urlbarview-background-color-selected: rgb(66, 65, 77) !important;
+    --urlbarview-text-color-selected: var(--uc-solid-fg) !important;
+
+    /* Sidebar appearance */
+    --sidebar-background-color: var(--uc-solid-bg) !important;
+    --sidebar-border-color: var(--uc-solid-border) !important;
+
+    /* Directly targeted chrome surfaces */
+    --uc-toolbar-background: transparent; /* Bookmarks, navigation bar, and toolbox background */
+    --uc-toolbox-border: none; /* Navigator toolbox border */
+    --uc-urlbar-open-background: #42414d; /* URL bar background while suggestions are open */
+    --uc-identity-box-background: inherit; /* Identity/context buttons, default */
+    --uc-identity-box-hover-background: var(--uc-element-hover); /* Identity/context buttons, hover */
+    --uc-identity-box-active-background: var(--uc-element-active); /* Identity/context buttons, pressed */
+
+    /* Tab appearance */
+    --lwt-text-color: var(--uc-element-passive) !important; /* Tab text unselected */
+    --tab-selected-textcolor: var(--uc-solid-fg) !important; /* Tab text selected */
+    --lwt-tab-line-color: rgba(255, 255, 255, 0.05) !important; /* Tab border selected */
+    --lwt-background-tab-separator-color: transparent !important; /* Unknown */
+    --uc-tab-background: transparent; /* Normal inactive tab */
+    --uc-tab-hover-background: var(--uc-element-hover); /* Hovered inactive tab */
+    --uc-tab-selected-background: var(--uc-element-hover); /* Selected tab */
+    --uc-tab-pending-text: var(--uc-element-maintext); /* Unloaded/discarded tab text */
+}
+
+/*
+ * Unknown options
+ * --lwt-accent-color
+ * --newtab-background-color
+ * --newtab-text-primary-color
+ * --lwt-accent-color-inactive
+ * --lwt-background-tiling
+ * --tab-loading-fill
+ * --tab-background-color-selected
+ * --toolbarseparator-color
+ * --sidebar-text-color
+ */
+
+
+ /*window transparency*/
+#main-window > body {
+    background: var(--bg) !important;
+}
+
+@media (-moz-gtk-csd-transparency-available) {
+    :root[customtitlebar] {
+        background-color: transparent;
+    }
+}
+
+
+/* Default first; the following state rules intentionally override it. */
+.tabbrowser-tab > .tab-stack > .tab-background {
+    background: var(--uc-tab-background) !important;
+}
+
+/* `selected` is a presence attribute; it is not reliably `selected="true"`. */
+.tabbrowser-tab[selected] > .tab-stack > .tab-background {
+    background: var(--uc-tab-selected-background) !important;
+}
+
+/* Keep the selected tab's background when it is hovered. */
+.tabbrowser-tab:hover:not([selected]) > .tab-stack > .tab-background {
+    background: var(--uc-tab-hover-background) !important;
+}
+
+/* Pending is the current unloaded-tab attribute; `discarded` denotes hibernation. */
+.tabbrowser-tab[pending],
+.tabbrowser-tab[discarded] {
+    color: var(--uc-tab-pending-text) !important;
+}
+
+/* Optional tab-state selectors supported by the current tab markup:
+ * .tabbrowser-tab[muted]                muted tab
+ * .tabbrowser-tab[soundplaying]         audible tab
+ * .tabbrowser-tab[activemedia-blocked]  autoplay blocked
+ * .tabbrowser-tab[pinned]               pinned tab
+ * .tabbrowser-tab[multiselected]        multi-selected tab
+ * .tabbrowser-tab[attention]            title/attention indicator
+ * .tabbrowser-tab[crashed]              crashed tab
+ * .tabbrowser-tab[tab-note]             tab with a note
+ */
+
+/* Implementation: edit the values in :root rather than these selectors. */
+:is(toolbar, #nav-bar, #navigator-toolbox) {
+    background: var(--uc-toolbar-background) !important;
+}
+
+#navigator-toolbox {
+    border: var(--uc-toolbox-border) !important;
+}
+
+#urlbar-background {
+    background: var(--toolbar-field-background-color) !important;
+}
+
+#urlbar[focused] #urlbar-background {
+    background: var(--toolbar-field-background-color-focus) !important;
+}
+
+#urlbar[open] #urlbar-background {
+    background: var(--uc-urlbar-open-background) !important;
+}
+
+#identity-box > :is(box, hbox):not(#identity-icon-box) {
+    background: var(--uc-identity-box-background) !important;
+}
+
+#identity-box > :is(box, hbox):not(#identity-icon-box):hover {
+    background: var(--uc-identity-box-hover-background) !important;
+}
+
+#identity-box > :is(box, hbox):not(#identity-icon-box):active {
+    background: var(--uc-identity-box-active-background) !important;
+}
