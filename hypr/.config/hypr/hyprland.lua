@@ -13,19 +13,21 @@ hl.monitor({
 --- My Programs
 local terminal    = "kitty"
 local fileManager = "dolphin"
-local menu        = "hyprlauncher"
+local menu        = "kitty --class launch-box ~/.config/hypr/scripts/launch-box.sh"
 
 --- Autostart
 hl.on("hyprland.start", function()
     hl.exec_cmd("swaync")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("antimicrox --hidden")
+    hl.exec_cmd("steam -silent")
+    hl.exec_cmd("vesktop --start-minimized")
 
     -- Waybar related
     hl.exec_cmd("waybar")
-    hl.exec_cmd("~/.config/waybar/scripts/bluetooth-watch.sh")
-    hl.exec_cmd("~/.config/waybar/scripts/proton-vpn-watch.sh")
-    hl.exec_cmd("~/.config/waybar/s#4e6481cripts/swaync-watch.sh")
+    hl.exec_cmd("sleep 1 && ~/.config/waybar/scripts/bluetooth-watch.sh")
+    hl.exec_cmd("sleep 1 && ~/.config/waybar/scripts/proton-vpn-watch.sh")
+    hl.exec_cmd("sleep 1 && ~/.config/waybar/scripts/swaync-watch.sh")
 end)
 
 --- Env Vars
@@ -239,9 +241,6 @@ hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/recor
 
 -- Color picker
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
-
--- Launch pad
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("kitty --class launch-box ~/.config/hypr/scripts/launch_box.sh"))
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
