@@ -17,9 +17,15 @@ local menu        = "hyprlauncher"
 
 --- Autostart
 hl.on("hyprland.start", function()
-    hl.exec_cmd("ufw enable")
+    hl.exec_cmd("swaync")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("antimicrox --hidden")
+
+    -- Waybar related
+    hl.exec_cmd("waybar")
+    hl.exec_cmd("~/.config/waybar/scripts/bluetooth-watch.sh")
+    hl.exec_cmd("~/.config/waybar/scripts/proton-vpn-watch.sh")
+    hl.exec_cmd("~/.config/waybar/s#4e6481cripts/swaync-watch.sh")
 end)
 
 --- Env Vars
@@ -228,11 +234,14 @@ hl.bind(mainMod .. " + CTRL + F",  hl.dsp.window.fullscreen_state({ internal = 0
 
 -- Screen capture
 hl.bind(mainMod .. " + S",         hl.dsp.exec_cmd("grim - | swappy -f -")) -- Instant fullscreen capture
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g '$(slurp)' - | swappy -f -")) -- Crop + capture
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -')) -- Crop + capture
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/record.sh")) -- Toggle screen record
 
 -- Color picker
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
+
+-- Launch pad
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("kitty --class launch-box ~/.config/hypr/scripts/launch_box.sh"))
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
@@ -271,6 +280,21 @@ hl.window_rule({
     },
 
     no_focus = true,
+})
+
+hl.window_rule({
+    match = {
+        class = "launch-box",
+    },
+    float = true,
+    size = { 800, 60 },
+    center = true,
+    pin = true,
+    stay_focused = true,
+    max_size = { 800, 60 },
+    min_size = { 800, 60 },
+    dim_around = true,
+    xray = true,
 })
 
 -- Layer rules also return a handle.
