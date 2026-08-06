@@ -1,5 +1,8 @@
 #!/bin/bash
 
-echo ""
+echo
 read -e -p " > " cmd
-[ -n "$cmd" ] && eval "$cmd"
+
+if [ -n "$cmd" ]; then
+    systemd-run --user --collect --quiet -- bash -c "$cmd"
+fi
