@@ -15,7 +15,7 @@ else
         text="󰂯"
         tooltip="Bluetooth is enabled but no devices are connected."
     else
-        text="󰂱  ($device_count)"
+        text="󰂱"
         tooltip="Devices connected:\n$devices"
     fi
 fi

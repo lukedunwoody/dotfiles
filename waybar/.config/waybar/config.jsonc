@@ -8,14 +8,10 @@
     // Choose the order of the modules
     "modules-left": [
         "custom/waybar-watchers",
-        "custom/updates",
-        "custom/swaync",
-        "custom/bluetooth",
-        "network",
-        "custom/proton-vpn",
-        "custom/power-profile",
-        "custom/ecstasy",
+        "group/actions",
+        "group/connectivity",
         "tray",
+        "group/power",
         "custom/recording"
     ],
     "modules-center": [
@@ -28,6 +24,28 @@
         "battery",
         "clock"
     ],
+    "group/actions": {
+        "orientation": "horizontal",
+        "modules": [
+          "custom/updates",
+          "custom/swaync"
+        ]
+    },
+    "group/connectivity": {
+        "orientation": "horizontal",
+        "modules": [
+          "network",
+          "custom/bluetooth",
+          "custom/proton-vpn"
+        ]
+    },
+    "group/power": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/power-profile",
+            "custom/ecstasy"
+        ]
+    },
     // Modules configuration
     "idle_inhibitor": {
         "format": "{icon}",
@@ -75,7 +93,7 @@
         // "format-critical": "{temperatureC}°C {icon}",
         "tooltip": false,
         "format": "{temperatureC} {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", "", "", ""]
     },
     "backlight": {
         // "device": "acpi_video1",
