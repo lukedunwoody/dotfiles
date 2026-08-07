@@ -25,9 +25,6 @@ hl.on("hyprland.start", function()
 
     -- Waybar related
     hl.exec_cmd("waybar")
-    hl.exec_cmd("sleep 1 && ~/.config/waybar/scripts/bluetooth-watch.sh")
-    hl.exec_cmd("sleep 1 && ~/.config/waybar/scripts/proton-vpn-watch.sh")
-    hl.exec_cmd("sleep 1 && ~/.config/waybar/scripts/swaync-watch.sh")
 end)
 
 --- Env Vars
