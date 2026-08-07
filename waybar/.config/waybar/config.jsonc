@@ -1,0 +1,212 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 28, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 10, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/waybar-watchers",
+        "custom/updates",
+        "custom/swaync",
+        "custom/bluetooth",
+        "network",
+        "custom/proton-vpn",
+        "custom/power-profile",
+        "custom/ecstasy",
+        "tray",
+        "custom/recording"
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "backlight",
+        "temperature",
+        "battery",
+        "clock"
+    ],
+    // Modules configuration
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 11,
+        "spacing": 7,
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "clock": {
+        "format": "{:%a %I:%M %p}",
+        "format-alt": "{:%a %H:%M}",
+        "tooltip-format": "<big>{:%d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "none",
+            "format": {
+                "months": "",
+                "days": "<span color='#ffffff'><b>{}</b></span>",
+                "weeks": "",
+                "weekdays": "<span color='#ffffff'><b>{}</b></span>",
+                "today": "<span color='#00ff00'><b>{}</b></span>"
+            }
+        },
+        "interval": 1
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "tooltip": false,
+        "format": "{temperatureC} {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent} {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity} {icon}",
+        "format-full": "{capacity} 󰁹",
+        "format-charging": "{capacity} {icon}",
+        "format-plugged": "{capacity} 󰚥",
+        "format-icons": {
+            "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+            "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+        }
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "󰾅",
+        "performance": "󰓅",
+        "balanced": "󰾅",
+        "power-saver": "󰾆"
+      }
+    },
+    "network": {
+        "format-wifi": "{icon}",
+        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+        "format-ethernet": "",
+        "format-disconnected": "󰤮",
+        "format-linked": "󰤫",
+
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\nInterface: {ifname} via {gwaddr}\nLocal: {ipaddr}/{cidr}",
+        "tooltip-format-ethernet": "Interface: {ifname} via {gwaddr}\nLocal: {ipaddr}/{cidr}",
+        "tooltip-disconnected": "You are currently not connected to the internet.",
+        "tooltip-linked": "Interface: {ifname} (No IP)",
+
+        "on-click": "kitty nmtui"
+    },
+    "pulseaudio": {
+        "format": "{volume} {icon}  {format_source}",
+        "format-muted": "{volume} {icon}  {format_source}",
+
+        "format-source": "{volume} 󰍬",
+        "format-source-muted": "{volume} 󰍭",
+
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰓃",
+            "headset": "󰋎",
+            "phone": "󰏲",
+            "portable": "󰏲",
+            "car": "󰄋",
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰖀",
+                "󰕾",
+                "󰕾"
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/updates": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/updates-get.sh",
+        "return-type": "json",
+        "interval": 600,
+        "signal": 1,
+        "tooltip": true,
+        "on-click": "kitty ~/.config/waybar/scripts/updates-install.sh"
+    },
+    "custom/bluetooth": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/bluetooth-get.sh",
+        "return-type": "json",
+        "signal": 2,
+        "tooltip": true,
+        "on-click": "blueman-manager"
+    },
+    "custom/proton-vpn": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/proton-vpn-get.sh",
+        "return-type": "json",
+        "signal": 3,
+        "tooltip": true,
+        "on-click": "protonvpn-app"
+    },
+    "custom/swaync": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/swaync-get.sh",
+        "return-type": "json",
+        "signal": 4,
+        "tooltip": true,
+        "on-click": "swaync-client -t"
+    },
+    "custom/recording": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/recording-get.sh",
+        "return-type": "text",
+        "signal": 5,
+        "tooltip": false
+    },
+    "custom/ecstasy": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/ecstasy-get.sh",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 6,
+        "tooltip": true,
+        "on-click": "~/.config/waybar/scripts/ecstasy-toggle.sh"
+    },
+    "custom/power-profile": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/power-profile-get.sh",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 7,
+        "tooltip": true,
+        "on-click": "~/.config/waybar/scripts/power-profile-toggle.sh"
+    },
+    "custom/waybar-watchers": {
+        "exec": "~/.config/waybar/scripts/start-watchers.sh",
+        "interval": "once",
+        "tooltip": false
+    },
+}

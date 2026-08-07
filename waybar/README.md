@@ -1,0 +1,1 @@
+If you are on new firmware where cat /sys/firmware/acpi/platform_profile_choices prints quiet balanced performance and doesn't match the options in powerprofilesctl, run the install script. If these dont add up, dont run this script and change custom/power-profile module to power-profiles-daemon
