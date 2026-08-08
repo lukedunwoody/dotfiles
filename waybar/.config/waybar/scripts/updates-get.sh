@@ -10,8 +10,10 @@ total=$((pacman_updates + aur_updates + flatpak_updates))
 # Text shown in Waybar
 if [ "$total" -gt 0 ]; then
     text="  ($total)"
+    class="has-updates"
 else
     text=""
+    class="up-to-date"
 fi
 
 # Build tooltip
@@ -29,4 +31,4 @@ if [ -z "$tooltip" ]; then
     tooltip="Everything is up to date."
 fi
 
-echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\"}"
+echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\", \"class\":\"$class\"}"

@@ -18,8 +18,7 @@ case "$current" in
         next="quiet"
         ;;
     *)
-        printf 'Unknown platform profile: %s\n' "$current" >&2
-        exit 1
+        next="balanced"
         ;;
 esac
 

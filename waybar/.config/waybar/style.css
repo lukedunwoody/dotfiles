@@ -105,6 +105,11 @@ button:hover {
     background-color: #2980b9;
 }
 
+/* Keep the icon-only state balanced; collapse the shared edge only with a count. */
+#custom-updates.has-updates {
+    padding-right: 0;
+}
+
 #clock,
 #battery,
 #cpu,

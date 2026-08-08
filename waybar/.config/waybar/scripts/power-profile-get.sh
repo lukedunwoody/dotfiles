@@ -22,6 +22,9 @@ case "$profile" in
     performance)
         text="󰓅"
         ;;
+    *)
+        text=""
+        ;;
 esac
 
 echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\"}"
