@@ -24,5 +24,5 @@ esac
 
 # Update Waybar first, then apply the slow firmware change in the background.
 printf '%s\n' "$next" > "$pending_file"
-pkill -SIGRTMIN+7 waybar
+pkill -SIGRTMIN+5 waybar
 nohup "$script_dir/power-profile-apply.sh" "$next" >/dev/null 2>&1 &

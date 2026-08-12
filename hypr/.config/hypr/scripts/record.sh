@@ -17,7 +17,7 @@ is_our_recorder_running() {
 }
 
 notify_waybar() {
-    pkill -SIGRTMIN+5 waybar
+    pkill -SIGRTMIN+7 waybar
 }
 
 if is_our_recorder_running; then

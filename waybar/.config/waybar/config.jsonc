@@ -1,29 +1,29 @@
 // -*- mode: jsonc -*-
 {
+    // General configuration
     // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 28, // Waybar height (to be removed for auto height)
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 24, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 10, // Gaps between modules (4px)
-    // Choose the order of the modules
+
+    // Module arrangement
     "modules-left": [
         "custom/waybar-watchers",
         "group/actions",
         "group/connectivity",
-        "tray",
         "group/power",
-        "custom/recording"
+        "tray"
     ],
     "modules-center": [
         "hyprland/workspaces",
     ],
     "modules-right": [
-        "pulseaudio",
-        "backlight",
-        "temperature",
-        "battery",
+        "group/system-stats",
         "clock"
     ],
+
+    // Groups
     "group/actions": {
         "orientation": "horizontal",
         "modules": [
@@ -34,19 +34,32 @@
     "group/connectivity": {
         "orientation": "horizontal",
         "modules": [
-          "network",
-          "custom/bluetooth",
-          "custom/proton-vpn"
+            "network",
+            "custom/bluetooth",
+            "custom/proton-vpn"
         ]
     },
     "group/power": {
         "orientation": "horizontal",
         "modules": [
-            "custom/power-profile",
-            "custom/ecstasy"
+            "power-profiles-daemon", // "custom/power-profile",
+            "custom/ecstasy", // "idle_inhibitor",
+            "custom/recording"
         ]
     },
-    // Modules configuration
+    "group/system-stats": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "backlight",
+            // "cpu",
+            // "memory",
+            "temperature",
+            "battery"
+        ]
+    },
+
+    // Built-in modules
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -55,12 +68,9 @@
         }
     },
     "tray": {
-        "icon-size": 11,
-        "spacing": 7,
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
+        // Comments are suggested values for a visible tray
+        "icon-size": 1, // 14
+        "spacing": 0, // 11
     },
     "clock": {
         "format": "{:%a %I:%M %p}",
@@ -80,17 +90,17 @@
         "interval": 1
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage} ",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{} "
     },
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
+        // "format-critical": "{temperatureC} {icon}",
         "tooltip": false,
         "format": "{temperatureC} {icon}",
         "format-icons": ["", "", "", "", ""]
@@ -111,7 +121,7 @@
         "format-charging": "{capacity} {icon}",
         "format-plugged": "{capacity} 󰚥",
         "format-icons": {
-            "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+            "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
             "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
         }
     },
@@ -164,67 +174,69 @@
         },
         "on-click": "pavucontrol"
     },
+
+    // Custom modules
+    "custom/waybar-watchers": {
+        "exec": "~/.config/waybar/scripts/start-watchers.sh",
+        "interval": "once",
+        "tooltip": false
+    },
     "custom/updates": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/updates-get.sh",
+        "exec": "~/.config/waybar/scripts/updaters/updates-get.sh",
         "return-type": "json",
         "interval": 600,
         "signal": 1,
         "tooltip": true,
-        "on-click": "kitty ~/.config/waybar/scripts/updates-install.sh"
+        "on-click": "kitty ~/.config/waybar/scripts/workers/updates-install.sh"
+    },
+    "custom/swaync": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/updaters/swaync-get.sh",
+        "return-type": "json",
+        "signal": 2,
+        "tooltip": true,
+        "on-click": "swaync-client -t"
     },
     "custom/bluetooth": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/bluetooth-get.sh",
+        "exec": "~/.config/waybar/scripts/updaters/bluetooth-get.sh",
         "return-type": "json",
-        "signal": 2,
+        "signal": 3,
         "tooltip": true,
         "on-click": "blueman-manager"
     },
     "custom/proton-vpn": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/proton-vpn-get.sh",
-        "return-type": "json",
-        "signal": 3,
-        "tooltip": true,
-        "on-click": "protonvpn-app"
-    },
-    "custom/swaync": {
-        "format": "{}",
-        "exec": "~/.config/waybar/scripts/swaync-get.sh",
+        "exec": "~/.config/waybar/scripts/updaters/proton-vpn-get.sh",
         "return-type": "json",
         "signal": 4,
         "tooltip": true,
-        "on-click": "swaync-client -t"
+        "on-click": "protonvpn-app"
     },
-    "custom/recording": {
+    "custom/power-profile": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/recording-get.sh",
-        "return-type": "text",
+        "exec": "~/.config/waybar/scripts/updaters/power-profile-get.sh",
+        "return-type": "json",
+        "interval": "once",
         "signal": 5,
-        "tooltip": false
+        "tooltip": true,
+        "on-click": "~/.config/waybar/scripts/workers/power-profile-toggle.sh"
     },
     "custom/ecstasy": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/ecstasy-get.sh",
+        "exec": "~/.config/waybar/scripts/updaters/ecstasy-get.sh",
         "return-type": "json",
         "interval": "once",
         "signal": 6,
         "tooltip": true,
-        "on-click": "~/.config/waybar/scripts/ecstasy-toggle.sh"
+        "on-click": "~/.config/waybar/scripts/workers/ecstasy-toggle.sh"
     },
-    "custom/power-profile": {
+    "custom/recording": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/power-profile-get.sh",
-        "return-type": "json",
-        "interval": "once",
+        "exec": "~/.config/waybar/scripts/updaters/recording-get.sh",
+        "return-type": "text",
         "signal": 7,
-        "tooltip": true,
-        "on-click": "~/.config/waybar/scripts/power-profile-toggle.sh"
-    },
-    "custom/waybar-watchers": {
-        "exec": "~/.config/waybar/scripts/start-watchers.sh",
-        "interval": "once",
         "tooltip": false
     },
 }

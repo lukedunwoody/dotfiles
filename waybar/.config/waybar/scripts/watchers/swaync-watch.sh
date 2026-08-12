@@ -1,5 +1,5 @@
 #!/bin/bash
 
 swaync-client -swb | while read -r _; do
-    pkill -SIGRTMIN+4 waybar
+    pkill -SIGRTMIN+2 waybar
 done

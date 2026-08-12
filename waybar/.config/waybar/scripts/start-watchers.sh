@@ -18,6 +18,8 @@ start_watcher() {
     printf '%s\n' "$!" > "$pid_file"
 }
 
-start_watcher "bluetooth" "$HOME/.config/waybar/scripts/bluetooth-watch.sh"
-start_watcher "proton-vpn" "$HOME/.config/waybar/scripts/proton-vpn-watch.sh"
-start_watcher "swaync" "$HOME/.config/waybar/scripts/swaync-watch.sh"
+watch_script_dir="$HOME/.config/waybar/scripts/watchers"
+
+start_watcher "bluetooth" "$watch_script_dir/bluetooth-watch.sh"
+start_watcher "proton-vpn" "$watch_script_dir/proton-vpn-watch.sh"
+start_watcher "swaync" "$watch_script_dir/swaync-watch.sh"
