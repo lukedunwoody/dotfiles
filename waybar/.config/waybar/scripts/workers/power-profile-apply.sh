@@ -14,4 +14,4 @@ else
 fi
 
 # Show the confirmed profile, or revert after a failed write.
-pkill -SIGRTMIN+7 waybar
+pkill -SIGRTMIN+5 waybar

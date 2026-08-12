@@ -42,7 +42,7 @@
     "group/power": {
         "orientation": "horizontal",
         "modules": [
-            "power-profiles-daemon", // "custom/power-profile",
+            "custom/power-profile", // "power-profiles-daemon",
             "custom/ecstasy", // "idle_inhibitor",
             "custom/recording"
         ]
