@@ -7,9 +7,11 @@ if [ -n "$vpn" ]; then
 
     text="󱎚"
     tooltip="Proton VPN connected\nServer: $server"
+    class="connected"
 else
     text="󱚱"
     tooltip="Proton VPN disconnected"
+    class="disconnected"
 fi
 
-echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\"}"
+echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\", \"class\":\"$class\"}"

@@ -28,7 +28,7 @@ if [ -f "$pending_file" ]; then
 elif profile=$(read_profile); then
     tooltip="Current profile: $profile"
 else
-    echo '{"text":"", "tooltip":"Power profile is temporarily unavailable"}'
+    echo '{"text":"", "tooltip":"Power profile is temporarily unavailable", "class":"unknown"}'
     exit 0
 fi
 
@@ -47,4 +47,4 @@ case "$profile" in
         ;;
 esac
 
-echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\"}"
+echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\", \"class\":\"$profile\"}"

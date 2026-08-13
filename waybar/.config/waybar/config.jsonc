@@ -13,6 +13,7 @@
         "group/actions",
         "group/connectivity",
         "group/power",
+        "group/privacy",
         "tray"
     ],
     "modules-center": [
@@ -43,7 +44,13 @@
         "orientation": "horizontal",
         "modules": [
             "custom/power-profile", // "power-profiles-daemon",
-            "custom/ecstasy", // "idle_inhibitor",
+            "custom/ecstasy" // "idle_inhibitor",
+        ]
+    },
+    "group/privacy": {
+        "orientation": "horizontal",
+        "modules": [
+            "privacy",
             "custom/recording"
         ]
     },
@@ -71,6 +78,17 @@
         // Comments are suggested values for a visible tray
         "icon-size": 1, // 14
         "spacing": 0, // 11
+    },
+    "privacy": {
+        // The privacy module is icon-only; size and spacing are configurable.
+        "icon-size": 12,
+        "icon-spacing": 0,
+        "transition-duration": 0,
+        "modules": [
+            { "type": "screenshare" },
+            { "type": "audio-in" },
+            { "type": "location" }
+        ]
     },
     "clock": {
         "format": "{:%a %I:%M %p}",
@@ -128,7 +146,6 @@
     "power-profiles-daemon": {
       "format": "{icon}",
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
       "format-icons": {
         "default": "󰾅",
         "performance": "󰓅",
@@ -145,8 +162,8 @@
 
         "tooltip-format-wifi": "{essid} ({signalStrength}%)\nInterface: {ifname} via {gwaddr}\nLocal: {ipaddr}/{cidr}",
         "tooltip-format-ethernet": "Interface: {ifname} via {gwaddr}\nLocal: {ipaddr}/{cidr}",
-        "tooltip-disconnected": "You are currently not connected to the internet.",
-        "tooltip-linked": "Interface: {ifname} (No IP)",
+        "tooltip-format-disconnected": "You are currently not connected to the internet.",
+        "tooltip-format-linked": "Interface: {ifname} (No IP)",
 
         "on-click": "kitty nmtui"
     },
@@ -187,7 +204,6 @@
         "return-type": "json",
         "interval": 600,
         "signal": 1,
-        "tooltip": true,
         "on-click": "kitty ~/.config/waybar/scripts/workers/updates-install.sh"
     },
     "custom/swaync": {
@@ -195,7 +211,6 @@
         "exec": "~/.config/waybar/scripts/updaters/swaync-get.sh",
         "return-type": "json",
         "signal": 2,
-        "tooltip": true,
         "on-click": "swaync-client -t"
     },
     "custom/bluetooth": {
@@ -203,7 +218,6 @@
         "exec": "~/.config/waybar/scripts/updaters/bluetooth-get.sh",
         "return-type": "json",
         "signal": 3,
-        "tooltip": true,
         "on-click": "blueman-manager"
     },
     "custom/proton-vpn": {
@@ -211,7 +225,6 @@
         "exec": "~/.config/waybar/scripts/updaters/proton-vpn-get.sh",
         "return-type": "json",
         "signal": 4,
-        "tooltip": true,
         "on-click": "protonvpn-app"
     },
     "custom/power-profile": {
@@ -220,7 +233,6 @@
         "return-type": "json",
         "interval": "once",
         "signal": 5,
-        "tooltip": true,
         "on-click": "~/.config/waybar/scripts/workers/power-profile-toggle.sh"
     },
     "custom/ecstasy": {
@@ -229,14 +241,12 @@
         "return-type": "json",
         "interval": "once",
         "signal": 6,
-        "tooltip": true,
         "on-click": "~/.config/waybar/scripts/workers/ecstasy-toggle.sh"
     },
     "custom/recording": {
         "format": "{}",
         "exec": "~/.config/waybar/scripts/updaters/recording-get.sh",
-        "return-type": "text",
+        "return-type": "json",
         "signal": 7,
-        "tooltip": false
     },
 }

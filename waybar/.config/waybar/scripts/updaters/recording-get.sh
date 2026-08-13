@@ -2,6 +2,10 @@
 
 PIDFILE="${XDG_RUNTIME_DIR:-/tmp}/wf-recorder.pid"
 
+text=""
+tooltip=""
+class="not-recording"
+
 if [[ -r "$PIDFILE" ]]; then
     read -r pid < "$PIDFILE"
 
@@ -9,10 +13,11 @@ if [[ -r "$PIDFILE" ]]; then
         read -r process < "/proc/$pid/comm"
 
         if [[ "$process" == "wf-recorder" ]]; then
-            echo "󰻃  Recording"
-            exit 0
+            text="󰻃"
+            tooltip="Record script active"
+            class="is-recording"
         fi
     fi
 fi
 
-echo "󰝦"
+echo "{\"text\":\"$text\", \"tooltip\":\"$tooltip\", \"class\":\"$class\"}"
