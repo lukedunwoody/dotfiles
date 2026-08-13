@@ -6,31 +6,31 @@ My minimal Waybar config for my Hyprland rice.
 
 This config includes several custom modules. Their scripts can be found in the `scripts` folder inside `.config/waybar`.
 
-##### 1. Updates
+##### Updates
 
 A distro icon that turns red and displays the update count when updates are available but not installed. The tooltip shows the sources of the updates, and clicking it launches a script that automatically updates packages through `pacman`, `yay`, and `flatpak`.
 
-##### 2. SwayNC
+##### SwayNC
 
 A bell that turns red and displays the notification count when there are unread SwayNC notifications. Clicking it opens the SwayNC client.
 
-##### 3. Bluetooth
+##### Bluetooth
 
 A Bluetooth icon that changes depending on whether Bluetooth is disabled, enabled and inactive, or enabled and active. The tooltip shows connected devices, and clicking it opens `blueman-manager`.
 
-##### 4. Proton VPN
+##### Proton VPN
 
 A lock that closes and fills when a VPN is connected. The tooltip shows the server when connected, and clicking it opens `proton-vpn-app`. Because it detects the connection through `nmcli`, it can easily be adapted for other VPNs by changing its click action.
 
-##### 5. Power Profiles for New Firmware
+##### Power Profiles for New Firmware
 
 The default `power-profiles-daemon` module uses `powerprofilesctl`, which breaks on certain firmware where `powerprofilesctl`'s `power-saver` profile is mapped to the firmware's `quiet` profile. This module uses a workaround that requires extra steps but handles these edge cases. For more information, see **Getting Started**.
 
-##### 6. Ecstasy
+##### Ecstasy
 
 When enabled, prevents the computer from sleeping when the lid is closed or when the system is idle. Clicking it toggles this behavior.
 
-##### 7. Recording
+##### Recording
 
 If you use my custom Hyprland recording script, this module adds an indicator while the script is active.
 
