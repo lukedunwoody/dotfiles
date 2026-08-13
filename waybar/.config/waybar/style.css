@@ -6,7 +6,7 @@
 }
 
 window#waybar {
-    background-color: rgba(17, 17, 23, 0.23);
+    background-color: rgba(17, 17, 23, 0.37);
     color: #eeeef5;
 
     transition-property: background-color;
@@ -225,7 +225,7 @@ button:hover {
 }
 
 #workspaces button.urgent {
-    background-color: #f09090;
+    color: #f09090;
 }
 
 /* Tooltip config */
