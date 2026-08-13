@@ -36,7 +36,7 @@ If you use my custom Hyprland recording script, this module adds an indicator wh
 
 ## Getting Started
 
-Before linking the configuration with `stow`, there are a few device-specific changes you may need or want to make.
+Before linking the configuration with Stow, there are a few device-specific changes you may need or want to make.
 
 ### Step 1: Tray
 
@@ -63,7 +63,7 @@ If you are using a desktop, this module provides no additional functionality bey
 
 By default, the system-stats group displays `temperature` and `battery`, not `cpu` and `memory`. On a desktop, `battery` serves no purpose and can be removed. Enable or disable the other modules as you prefer by editing `"modules"` in `"group/system-stats"` near line 57 of `config.jsonc`.
 
-### Step 5: Link with stow
+### Step 5: Link with Stow
 
 From the repository root, run this command:
 

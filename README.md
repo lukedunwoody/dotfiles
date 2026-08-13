@@ -4,4 +4,4 @@
 
 ## Installation
 
-Use stow for linking the files
+Use Stow for linking the files
