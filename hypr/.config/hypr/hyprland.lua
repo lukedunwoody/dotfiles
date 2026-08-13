@@ -18,8 +18,8 @@ hl.on("hyprland.start", function()
 end)
 
 --- Env Vars
-hl.env("XCURSOR_SIZE", 24)
-hl.env("HYPRCURSOR_SIZE", 24)
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
+hl.env("HYPRCURSOR_SIZE", 20)
 hl.env("QT_QPA_PLATFORM", "wayland")
 hl.env("QT_STYLE_OVERRIDE", "kvantum")
 
