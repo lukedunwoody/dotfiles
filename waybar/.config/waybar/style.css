@@ -65,7 +65,8 @@ button:hover {
 #custom-power-profile,
 #power-profiles-daemon,
 #custom-ecstasy,
-#idle_inhibitor {
+#idle_inhibitor,
+#custom-recording {
     padding-left:  10px;
     padding-right: 13px;
     color: rgba(238, 238, 245, 0.5);
@@ -121,7 +122,8 @@ button:hover {
 #custom-power-profile.performance,
 #power-profiles-daemon.performance,
 #custom-ecstasy.enabled,
-#idle_inhibitor.activated {
+#idle_inhibitor.activated,
+#custom-recording.is-recording {
     color: rgba(238, 238, 245, 1);
 }
 
