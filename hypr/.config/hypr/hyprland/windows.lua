@@ -49,6 +49,17 @@ hl.window_rule({
     xray = true,
 })
 
+hl.window_rule({
+    -- Phone box
+    match = {
+        class = "GStreamer",
+        -- title = "UxPlay@(system_name)" -- If class conflict
+    },
+    float = true,
+    move = { "(monitor_h*0.04)", "(monitor_h*0.04+12)" },
+    size = { "(monitor_h*0.92*0.46)", "(monitor_h*0.92)" },
+})
+
 hl.layer_rule({
     name = "blur-waybar",
     match = { namespace = "^waybar$" },
