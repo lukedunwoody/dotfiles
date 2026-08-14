@@ -2,8 +2,8 @@
 
 PIDFILE="${XDG_RUNTIME_DIR:-/tmp}/wf-recorder.pid"
 
-text=""
-tooltip=""
+text="󰝦"
+tooltip="Record script inactive"
 class="not-recording"
 
 if [[ -r "$PIDFILE" ]]; then

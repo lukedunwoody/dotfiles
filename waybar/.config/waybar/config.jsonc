@@ -51,6 +51,7 @@
         "orientation": "horizontal",
         "modules": [
             "privacy",
+            "custom/uxplay",
             "custom/recording"
         ]
     },
@@ -249,4 +250,12 @@
         "return-type": "json",
         "signal": 7,
     },
+    "custom/uxplay": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/updaters/uxplay-get.sh",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "on-click": "~/.config/waybar/scripts/workers/uxplay-toggle.sh"
+    }
 }

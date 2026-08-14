@@ -66,7 +66,8 @@ button:hover {
 #power-profiles-daemon,
 #custom-ecstasy,
 #idle_inhibitor,
-#custom-recording {
+#custom-recording,
+#custom-uxplay {
     padding-left:  10px;
     padding-right: 13px;
     color: rgba(238, 238, 245, 0.5);
@@ -93,7 +94,8 @@ button:hover {
     padding-right: 8px;
 }
 
-#network {
+#network,
+#custom-uxplay {
     padding-right: 15px;
 }
 
@@ -123,7 +125,8 @@ button:hover {
 #power-profiles-daemon.performance,
 #custom-ecstasy.enabled,
 #idle_inhibitor.activated,
-#custom-recording.is-recording {
+#custom-recording.is-recording,
+#custom-uxplay.active {
     color: rgba(238, 238, 245, 1);
 }
 
@@ -149,6 +152,7 @@ button:hover {
 #power-profiles-daemon:hover,
 #custom-ecstasy:hover,
 #idle_inhibitor:hover,
+#custom-uxplay:hover,
 #pulseaudio:hover,
 #clock:hover {
     background-color: rgba(238, 238, 245, 0.2);
