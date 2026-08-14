@@ -23,6 +23,18 @@ hl.window_rule({
 })
 
 hl.window_rule({
+    -- PIP video box
+    match = {
+        title = "Picture-in-Picture",
+    },
+    float = true,
+    move = { 30, "(monitor_h*0.8-30)" },
+    size = { "(monitor_h*0.32)", "(monitor_h*0.20)" },
+    no_initial_focus = true,
+    pin = true
+})
+
+hl.window_rule({
     match = {
         class = "launch-box",
     },
@@ -61,13 +73,4 @@ hl.layer_rule({
     blur = true,
     xray = true,
     ignore_alpha = 0,
-})
-
--- Hyprland-run windowrule
-hl.window_rule({
-    name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
-
-    move  = "20 monitor_h-120",
-    float = true,
 })
