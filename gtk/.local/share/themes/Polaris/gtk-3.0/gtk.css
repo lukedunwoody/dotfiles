@@ -1,0 +1,280 @@
+/* GTK and libadwaita compatibility color aliases. */
+@define-color theme_fg_color #eeeef5;
+@define-color theme_text_color #eeeef5;
+@define-color theme_bg_color rgba(17, 17, 23, 0);
+@define-color theme_base_color rgba(17, 17, 23, 0);
+@define-color theme_selected_bg_color rgba(255, 255, 255, 0.2);
+@define-color theme_selected_fg_color #eeeef5;
+@define-color insensitive_bg_color rgba(255, 255, 255, 0.066667);
+@define-color insensitive_fg_color #eeeef5;
+@define-color insensitive_base_color rgba(17, 17, 23, 0);
+@define-color theme_unfocused_fg_color #eeeef5;
+@define-color theme_unfocused_text_color #eeeef5;
+@define-color theme_unfocused_bg_color rgba(17, 17, 23, 0);
+@define-color theme_unfocused_base_color rgba(17, 17, 23, 0);
+@define-color theme_unfocused_selected_bg_color rgba(255, 255, 255, 0.2);
+@define-color theme_unfocused_selected_fg_color #eeeef5;
+@define-color borders rgba(255, 255, 255, 0);
+@define-color unfocused_borders rgba(255, 255, 255, 0);
+@define-color fg_color #eeeef5;
+@define-color text_color #eeeef5;
+@define-color bg_color rgba(17, 17, 23, 0);
+@define-color base_color rgba(17, 17, 23, 0);
+@define-color selected_bg_color rgba(255, 255, 255, 0.2);
+@define-color selected_fg_color #eeeef5;
+@define-color unfocused_fg_color #eeeef5;
+@define-color unfocused_text_color #eeeef5;
+@define-color unfocused_bg_color rgba(17, 17, 23, 0);
+@define-color unfocused_base_color rgba(17, 17, 23, 0);
+@define-color unfocused_selected_bg_color rgba(255, 255, 255, 0.2);
+@define-color unfocused_selected_fg_color #eeeef5;
+@define-color window_bg_color rgba(17, 17, 23, 0);
+@define-color window_fg_color #eeeef5;
+@define-color view_bg_color rgba(17, 17, 23, 0);
+@define-color view_fg_color #eeeef5;
+@define-color headerbar_bg_color rgba(17, 17, 23, 0);
+@define-color headerbar_fg_color #eeeef5;
+@define-color accent_bg_color rgba(255, 255, 255, 0.2);
+@define-color accent_fg_color #eeeef5;
+@define-color card_bg_color rgba(255, 255, 255, 0.066667);
+@define-color dialog_bg_color #111117;
+@define-color dialog_fg_color #eeeef5;
+@define-color popover_bg_color #111117;
+@define-color popover_fg_color #eeeef5;
+
+/* Polaris — GTK 3 */
+
+@define-color polaris_fg #eeeef5;
+@define-color polaris_bg rgba(17, 17, 23, 0);
+@define-color polaris_menu #111117;
+@define-color polaris_button rgba(255, 255, 255, 0.066667);
+@define-color polaris_hover rgba(255, 255, 255, 0.2);
+@define-color polaris_active rgba(255, 255, 255, 0.333333);
+
+* {
+  color: @polaris_fg;
+  -gtk-icon-style: symbolic;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+window,
+.background,
+.view,
+.view.frame,
+scrolledwindow,
+viewport,
+stack,
+notebook,
+notebook > stack,
+headerbar,
+.titlebar,
+toolbar,
+.sidebar,
+.sidebar.view {
+  background-color: @polaris_bg;
+  color: @polaris_fg;
+  border: none;
+  box-shadow: none;
+}
+
+button,
+.button,
+modelbutton {
+  min-height: 20px;
+  min-width: 16px;
+  background-color: @polaris_button;
+  background-image: none;
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
+  color: @polaris_fg;
+  text-shadow: none;
+}
+
+button:hover,
+.button:hover,
+modelbutton:hover {
+  background-color: @polaris_hover;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+button:active,
+button:checked,
+button:active:checked,
+.button:active,
+.button:checked,
+modelbutton:active,
+modelbutton:checked {
+  background-color: @polaris_active;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+button:disabled,
+.button:disabled,
+modelbutton:disabled {
+  color: @polaris_fg;
+  opacity: 0.5;
+}
+
+image,
+image:dir(ltr),
+button image,
+menuitem image,
+modelbutton image {
+  color: @polaris_fg;
+}
+
+entry,
+spinbutton entry,
+combobox entry,
+searchentry {
+  background-color: @polaris_button;
+  background-image: none;
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
+  color: @polaris_fg;
+  caret-color: @polaris_fg;
+}
+
+entry:focus,
+spinbutton entry:focus,
+combobox entry:focus,
+searchentry:focus {
+  background-color: @polaris_hover;
+  border: none;
+  box-shadow: none;
+}
+
+menu,
+.menu,
+.context-menu,
+popover,
+popover.background,
+.tooltip,
+tooltip {
+  background-color: @polaris_menu;
+  background-image: none;
+  border: none;
+  border-radius: 6px;
+  box-shadow: none;
+  color: @polaris_fg;
+}
+
+menuitem,
+.menuitem,
+popover modelbutton {
+  min-height: 0;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 5px;
+  color: @polaris_fg;
+  text-shadow: none;
+}
+
+menuitem:hover,
+menuitem:selected,
+.menuitem:hover,
+popover modelbutton:hover {
+  background-color: @polaris_hover;
+  background-image: none;
+  border: none;
+}
+
+menuitem:active,
+.menuitem:active,
+popover modelbutton:active {
+  background-color: @polaris_active;
+  background-image: none;
+  border: none;
+}
+
+tooltip label {
+  color: @polaris_fg;
+}
+
+:selected,
+selection,
+.view:selected,
+.view:selected:focus,
+row:selected,
+row:selected:focus {
+  background-color: @polaris_hover;
+  color: @polaris_fg;
+  border: none;
+}
+
+separator {
+  background-color: rgba(238, 238, 245, 0.12);
+  min-width: 1px;
+  min-height: 1px;
+}
+
+frame,
+.frame,
+notebook > header,
+notebook > header > tabs > tab {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: @polaris_fg;
+}
+
+notebook > header > tabs > tab:checked {
+  background-color: @polaris_button;
+  border: none;
+  border-radius: 5px;
+}
+
+notebook > header > tabs > tab:hover {
+  background-color: @polaris_hover;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Preserve compact icon controls; pad only text controls. */
+button.text-button,
+button:not(.image-button),
+.button:not(.image-button),
+modelbutton {
+  padding: 2px 6px;
+}
+
+button.image-button,
+.button.image-button,
+button.flat.image-button,
+toolbar button,
+toolbar button.image-button,
+headerbar button,
+headerbar button.image-button,
+.titlebar button,
+.titlebar button.image-button {
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+button.image-button image,
+toolbar button image,
+headerbar button image,
+.titlebar button image {
+  margin: 0;
+  padding: 0;
+}
+
+menuitem,
+.menuitem,
+popover modelbutton,
+entry,
+spinbutton entry,
+combobox entry,
+searchentry,
+notebook > header > tabs > tab {
+  padding: 2px 6px;
+}

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Polaris
+Comment=Transparent dark GTK theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Polaris
