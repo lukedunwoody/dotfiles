@@ -18,7 +18,7 @@ case "$current" in
         next="quiet"
         ;;
     *)
-        next="balanced"
+        next="quiet"
         ;;
 esac
 
