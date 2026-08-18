@@ -1,0 +1,146 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "git_panel": {
+    "scrollbar": {
+      "show": "always"
+    }
+  },
+  "active_pane_modifiers": {
+    "inactive_opacity": 0.8
+  },
+  "indent_guides": {
+    "active_line_width": 2
+  },
+  "autoscroll_on_clicks": true,
+  "scroll_sensitivity": 2.0,
+  "vertical_scroll_margin": 6.0,
+  "buffer_font_weight": 300.0,
+  "agent_buffer_font_family": "DMMono Nerd Font",
+  "terminal": {
+    "blinking": "on",
+    "cursor_shape": "bar",
+    "font_family": "DMMono Nerd Font"
+  },
+  "edit_predictions": {
+    "provider": "zed",
+    "mode": "subtle"
+  },
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "indent_guides": {
+      "show": "never"
+    },
+    "scrollbar": {
+      "show": "always"
+    },
+    "indent_size": 20.0,
+    "folder_icons": false,
+    "file_icons": false,
+    "hide_gitignore": false
+  },
+  "tabs": {
+    "git_status": false
+  },
+  "title_bar": {
+    "button_layout": "platform_default",
+    "show_branch_status_icon": false
+  },
+  "status_bar": {
+    "cursor_position_button": false
+  },
+  "diagnostics": {
+    "button": true
+  },
+  "search": {
+    "button": true
+  },
+  "debugger": {
+    "button": true
+  },
+  "text_rendering_mode": "platform_default",
+  "ui_font_weight": 400.0,
+  "ui_font_family": "DM Sans",
+  "buffer_font_family": "DMMono Nerd Font",
+  "restore_on_startup": "launchpad",
+  "when_closing_with_no_tabs": "keep_window_open",
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "agent": {
+    "profiles": {
+      "context": {
+        "default_model": {
+          "provider": "openai",
+          "model": "gpt-5.6-luna",
+          "enable_thinking": true,
+          "effort": "medium"
+        },
+        "name": "Context",
+        "tools": {
+          "edit_file": true,
+          "write_file": true,
+          "read_file": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {}
+      }
+    },
+    "tool_permissions": {
+      "tools": {
+        "terminal": {
+          "default": "allow"
+        }
+      }
+    },
+    "default_profile": "write",
+    "default_model": {
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "enable_thinking": true,
+      "effort": "medium"
+    },
+    "favorite_models": [
+      {
+        "provider": "openai",
+        "model": "gpt-5-nano",
+        "enable_thinking": true,
+        "effort": "medium"
+      },
+      {
+        "provider": "openai",
+        "model": "gpt-5.6-terra",
+        "enable_thinking": true,
+        "effort": "low"
+      },
+      {
+        "provider": "openai",
+        "model": "gpt-5.6-luna",
+        "enable_thinking": true,
+        "effort": "medium"
+      }
+    ],
+    "model_parameters": []
+  },
+  "show_edit_predictions": false,
+  "vim_mode": false,
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "ui_font_size": 16.0,
+  "buffer_font_size": 14.0,
+  "theme": "Polaris",
+}
