@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DIR="$HOME/Videos/Recordings"
 PIDFILE="${XDG_RUNTIME_DIR:-/tmp}/wf-recorder.pid"

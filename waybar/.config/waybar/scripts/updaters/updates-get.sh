@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get update counts
 pacman_updates=$(checkupdates 2>/dev/null | wc -l)

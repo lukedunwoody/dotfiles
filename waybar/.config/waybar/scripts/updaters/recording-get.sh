@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PIDFILE="${XDG_RUNTIME_DIR:-/tmp}/wf-recorder.pid"
 

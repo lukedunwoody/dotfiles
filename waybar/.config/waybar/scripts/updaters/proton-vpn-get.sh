@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 vpn=$(nmcli -t -f TYPE,NAME connection show --active | grep '^vpn:')
 

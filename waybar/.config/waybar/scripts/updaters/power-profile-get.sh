@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 pending_file="${XDG_RUNTIME_DIR:-/tmp}/waybar-power-profile.pending"
 profile_path="/sys/firmware/acpi/platform_profile"
