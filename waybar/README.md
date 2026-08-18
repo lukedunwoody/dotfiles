@@ -57,7 +57,11 @@ cat /sys/firmware/acpi/platform_profile_choices
 
 If it prints `quiet balanced performance`, then run `install-platform-profile-permission.sh`.
 
-If it prints `power-saver` instead of `quiet`, then change `"custom/power-profile"` to `"power-profiles-daemon"` near line 46 of `config.jsonc`.
+If it prints `power-saver` instead of `quiet`, then change `"custom/power-profile"` to `"power-profiles-daemon"` near line 46 of `config.jsonc`, and run this from the repository root:
+
+```bash
+./install/install-platform-profile-permission.sh
+```
 
 ### Step 3: Ecstasy
 
@@ -69,7 +73,13 @@ By default, the system-stats group displays `temperature` and `battery`, not `cp
 
 ### Step 5: UxPlay
 
-If you would like to use the UxPlay module, run the `disable-uxplay-firewall.sh` script. If you would like it disabled, comment it out or delete it from `config.json`.
+If you would like to use the UxPlay module, run this from the repository root:
+
+```bash
+./install/disable-uxplay-firewall.sh
+```
+
+If you would like it disabled, comment it out or delete it from `config.json`.
 
 ### Step 6: Link with Stow
 
