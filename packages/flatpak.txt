@@ -1,0 +1,5 @@
+io.github.maniacx.BudsLink
+org.prismlauncher.PrismLauncher
+org.upscayl.Upscayl
+org.vinegarhq.Sober
+org.vinegarhq.Vinegar

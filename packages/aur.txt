@@ -1,0 +1,10 @@
+jdownloader2
+librewolf-bin
+localsend-bin
+losslesscut-bin
+lsfg-vk
+protonup-qt
+upscayl-bin
+uxplay
+vesktop-bin
+xpadneo-dkms
