@@ -57,7 +57,7 @@ blankwindow,
 
 .notification-row .notification {
   background: rgba(17, 17, 23, 0.9);
-  border: none;
+  border: 1px solid rgba(238, 238, 245, 0.12);
   border-radius: 8px;
   box-shadow: none;
 }
