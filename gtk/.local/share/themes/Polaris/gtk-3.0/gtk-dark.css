@@ -219,7 +219,7 @@ headerbar .subtitle {
   text-shadow: none; }
 
 assistant .sidebar {
-  background-color: #1c1f25;
+  background-color: transparent;
   border-top: 1px solid #414348; }
   assistant .sidebar:backdrop {
     background-color: #1f2128;
@@ -566,7 +566,7 @@ button.suggested-action {
   box-shadow: none;
   color: white;
   border-radius: 6px;
-  background: linear-gradient(to right, #495aff 0%, #0014CC 100%); }
+  background: rgba(255, 255, 255, 0.1); }
   .selection-mode button.titlebutton, button.suggested-action.flat {
     box-shadow: none;
     color: white;
@@ -2123,7 +2123,7 @@ GraniteWidgetsWelcome {
 .titlebar:not(headerbar), .titlebar, headerbar {
   padding: 0 13px;
   min-height: 34px;
-  background: #0b0d0f;
+  background: transparent;
   color: #C3C7D1;
   border-radius: 0; }
   .titlebar:backdrop,
@@ -2650,7 +2650,7 @@ window.csd > .titlebar:not(headerbar) {
   border-color: transparent;
   box-shadow: none; }
 .titlebar:not(headerbar) > separator, .titlebar:not(headerbar) > separator:backdrop {
-  background: #0b0d0f; }
+  background: transparent; }
 
 /**************
  * GtkInfoBar *
@@ -2820,7 +2820,7 @@ button:visited {
  *********/
 list {
   color: #C3C7D1;
-  background-color: #1c1f25;
+  background-color: transparent;
   border-color: #414348; }
   list:backdrop {
     background-color: #1f2128;
@@ -3945,7 +3945,7 @@ treeview ~ scrollbar.vertical {
 .sidebar {
   border-style: none;
   border-width: 0;
-  background-color: #191c21; }
+  background-color: transparent; }
   .sidebar .frame {
     border: none; }
   stacksidebar.sidebar:dir(ltr) list, stacksidebar.sidebar.left list, stacksidebar.sidebar.left:dir(rtl) list, .sidebar:dir(ltr), .sidebar.left, .sidebar.left:dir(rtl) {
@@ -3961,7 +3961,7 @@ treeview ~ scrollbar.vertical {
     border-color: #3d3f44;
     transition: 200ms ease-out; }
   .sidebar list {
-    background-color: #191c21; }
+    background-color: transparent; }
   .sidebar row {
     padding: 8px 14px;
     transition: all .12s ease-in; }
@@ -6080,7 +6080,7 @@ ConversationListView {
     background: rgba(255, 255, 255, 0.1);
     color: #ffffff; }
 .nemo-window .sidebar {
-  background-color: #191c21; }
+  background-color: transparent; }
   .nemo-window .sidebar .view, .nemo-window .sidebar iconview, .nemo-window .sidebar .iconview, .nemo-window .sidebar row {
     color: #C3C7D1;
     background-color: transparent; }
@@ -6138,14 +6138,14 @@ ConversationListView {
 * Caja sidebar *
 **************/
 .caja-side-pane {
-  background: #191c21; }
+  background: transparent; }
   .caja-side-pane .frame {
     border-width: 1px 0 0; }
   .caja-side-pane treeview.view,
   .caja-side-pane textview.view text,
   .caja-side-pane viewport.frame,
   .caja-side-pane widget .vertical {
-    background: #191c21;
+    background: transparent;
     padding: 3px 2px; }
     .caja-side-pane treeview.view:hover,
     .caja-side-pane textview.view text:hover,
@@ -6215,7 +6215,7 @@ window.thunar toolbar#location-toolbar > toolitem > widget > widget.linked.path-
 
 /* thunar sidepane */
 .thunar scrolledwindow.sidebar treeview.view {
-  background: #191c21;
+  background: transparent;
   padding: 1.5px; }
   .thunar scrolledwindow.sidebar treeview.view:hover, .thunar scrolledwindow.sidebar treeview.view:selected {
     background: rgba(255, 255, 255, 0.1);
