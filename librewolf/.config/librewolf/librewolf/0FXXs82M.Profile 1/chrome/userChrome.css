@@ -161,3 +161,10 @@
 #identity-box > :is(box, hbox):not(#identity-icon-box):active {
     background: var(--uc-identity-box-active-background) !important;
 }
+
+/* Link-preview status panel (bottom-left "going to" box) */
+#statuspanel-label {
+  background-color: var(--uc-solid-bg) !important;
+  color: var(--uc-solid-fg) !important;
+  border: 1px solid var(--uc-solid-border) !important;
+}
