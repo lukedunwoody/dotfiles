@@ -29,5 +29,5 @@ Go into the following folders and follow the README's instructions inside each o
 From the repository root, link all files using `stow`:
 
 ```bash
-stow antimicrox bashrc cursor fonts gtk hypr kitty Kvantum librewolf lsfg-vk MangoHud mpv swappy swaync waybar zed
+stow antimicrox bashrc cursor fonts gtk hypr kitty Kvantum librewolf lsfg-vk MangoHud mpv scripts swappy swaync waybar zed
 ```
